@@ -1,0 +1,275 @@
+:root {
+  --dark-grey: #141311;
+  --grey: #222021bb;
+  --light-grey: #edf2f4;
+  --red: #fb0025;
+  --dark-red: #990022;
+  --grey-gradient: linear-gradient(to left, var(--grey), var(--dark-grey));
+  --red-gradient: linear-gradient(to left, var(--dark-red), var(--red));
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Permanent Marker', cursive;
+}
+
+header {
+  font-size: 7vw;
+  height: 15vh;
+}
+
+header > div {
+  height: 100%;
+  background: var(--grey-gradient);
+  color: var(--light-grey);
+}
+
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+main {
+  height: 78vh;
+  background-color: var(--light-grey);
+  display: flex;
+  justify-content: center;
+}
+
+.configuration {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 78vh;
+  width: 100%;
+  z-index: 2;
+  background-color: var(--light-grey);
+}
+
+.configuration div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.configuration div div {
+  flex-direction: row;
+}
+
+.game-option {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+.game-option img {
+  height: 200px;
+  width: 200px;
+  border-radius: 10px;
+}
+
+.game-option > h4 {
+  display: none;
+  position: absolute;
+  text-align: center;
+  color: var(--light-grey);
+  font-size: 2rem;
+  text-shadow: 2px 2px 2px var(--dark-grey);
+  cursor: default;
+}
+
+.game-option:hover {
+  opacity: 0.8;
+}
+
+.game-option:hover > h4 {
+  display: block;
+}
+
+button {
+  color: var(--light-grey);
+  background: var(--grey-gradient);
+  border: none;
+  font-family: inherit;
+  font-size: large;
+  border-radius: 5px;
+  padding: 5px 20px;
+  cursor: pointer;
+}
+
+.player-names {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: stretch;
+  width: 100%;
+}
+
+.player-names textarea {
+  font-family: inherit;
+  font-size: 8vw;
+  max-width: 250px;
+  height: min-content;
+  color: var(--dark-grey);
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--light-grey);
+  flex: 1;
+  resize: none;
+}
+
+.player-names textarea:focus {
+  outline: 2px solid var(--red);
+  background-color: white;
+}
+
+#edit1 {
+  height: 30px;
+  position: absolute;
+  left: 25%;
+  transform: translate(50%);
+}
+
+#edit2 {
+  height: 30px;
+  position: absolute;
+  right: 25%;
+  transform: translate(-50%);
+}
+
+.animate-character {
+  background-image: linear-gradient(
+    to right,
+    var(--dark-red) 0%,
+    var(--red) 50%,
+    var(--grey) 67%,
+    var(--dark-grey) 100%
+    );
+    background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+  /* font-family: 'Permanent Marker', cursive; */
+}
+
+@keyframes textclip {
+  to {
+    background-position: -200% center;
+  }
+}
+
+.name {
+  position: relative;
+}
+
+textarea + img {
+  display: none;
+  height: 30px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+div:hover > textarea + img {
+  display: block;
+}
+
+#winner {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  background-color: var(--light-grey);
+  font-family: 'DynaPuff', sans-serif;
+  font-size: 2rem;
+}
+
+.gameboard {
+  display: grid;
+  grid-template-columns: repeat(3, 13vh);
+  grid-template-rows: repeat(3, 13vh);
+  border: 3px solid var(--grey);
+}
+
+.box {
+  border: 3px solid var(--grey);
+  font-size: 7vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.red {
+  color: var(--red);
+}
+
+.controls {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 5%;
+}
+
+footer, a {
+  height: 7vh;
+  background: var(--red-gradient);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--light-grey);
+  font-family: 'Inter', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  margin-left: 20px;
+  background: transparent;
+}
+
+footer img {
+  height: 30px;
+  filter: invert(98%) sepia(1%) saturate(2290%) hue-rotate(177deg) brightness(101%) contrast(91%);
+}
+
+@media only screen and (min-width: 450px) {
+  header {
+    font-size: 2rem;
+  }
+
+  .player-names textarea {
+    font-size: 2.2rem;
+  }
+  .player-names .animate-character {
+    font-size: 2.5rem;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .player-names {
+    justify-content: center;
+  }
+}
